@@ -7,39 +7,60 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS Premium: Efek Lab Gelap, Glassmorphic Cards, & Glowing Effects
+# Custom CSS Premium: Efek Lab Gelap Terstruktur Organik & Glassmorphic Cards
 st.markdown("""
 <style>
-/* Background gradasi lab gelap */
+/* Background Menawan dengan Unsur Struktur Organik (Benzena/Heksagonal) */
 .stApp {
-    background: linear-gradient(135deg, #090d16 0%, #0f172a 50%, #1e293b 100%);
+    background-color: #0b111e;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+    position: relative;
 }
+
+/* Pola Garis Heksagonal Organik Samar */
+.stApp::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66zm0 2L56 84L56 100L28 100L0 100L0 84L28 68z' fill='%233b82f6' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
 section[data-testid="stSidebar"] {
-    background-color: #090d16 !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #070b12 !important;
+    border-right: 1px solid rgba(16, 185, 129, 0.15);
 }
+
 h1, h2, h3, h4, label, .stMarkdown, p, li {
     color: #f8fafc !important;
 }
+
 /* Efek Glassmorphism Premium untuk Kontainer */
 .card {
-    background: rgba(30, 41, 59, 0.45);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 25px;
     border-radius: 16px;
     margin-bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
 /* Kartu Identitas */
 .identity-card {
-    background: rgba(15, 23, 42, 0.7);
+    background: rgba(15, 23, 42, 0.75);
     padding: 25px;
     border-radius: 16px;
-    border-left: 6px solid #3b82f6;
+    border-left: 6px solid #10b981;
     margin-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.05);
 }
+
 /* Indikator Tabung Reaksi Virtual */
 .tube-card {
     padding: 20px;
@@ -69,7 +90,7 @@ div[role="listbox"] li {
 
 # Sidebar Menu Navigation
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #3b82f6;'>🧪 MENU UTAMA</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #10b981;'>🧪 MENU UTAMA</h2>", unsafe_allow_html=True)
     menu = st.sidebar.radio("Navigasi Halaman:", [
         "🏠 Beranda",
         "📖 Teori Dasar",
@@ -88,7 +109,7 @@ if menu == "🏠 Beranda":
     
     st.markdown("""
     <div class="card">
-    <h3 style="color: #3b82f6;">👋 Selamat Datang!</h3>
+    <h3 style="color: #10b981;">👋 Selamat Datang!</h3>
     Aplikasi ini dirancang sebagai media pembelajaran interaktif mengenai analisis kualitatif senyawa golongan 
     <b>Aldehid (Alkanal)</b> dan <b>Keton (Alkanon)</b>. Di sini, Anda dapat mempelajari teori dasar, 
     memahami prinsip kerja pereaksi spesifik, melihat persamaan reaksi kimia, hingga melakukan simulasi praktikum virtual.
@@ -98,7 +119,7 @@ if menu == "🏠 Beranda":
     st.markdown("### 👥 Identitas Pengembang")
     st.markdown("""
     <div class="identity-card">
-    <h4 style="color: #60a5fa; margin-bottom: 5px;"><b>Kelompok 6 - Kelas 1D</b></h4>
+    <h4 style="color: #34d399; margin-bottom: 5px;"><b>Kelompok 6 - Kelas 1D</b></h4>
     <p style="margin: 2px 0;"><b>Program Studi:</b> D3 Analisis Kimia</p>
     <p style="margin: 2px 0;"><b>Institusi:</b> Politeknik AKA Bogor</p>
     <hr style='border-color: rgba(255,255,255,0.15); margin: 15px 0;'>
@@ -255,7 +276,7 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
         
         # JALUR PEMBAHASAN DETAIL DAN BAHASA YANG MUDAH DIPAHAMI
         st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='color: #60a5fa; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #34d399; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
         
         if is_aldehid:
             st.markdown(f"""
@@ -282,7 +303,6 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
             * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjadi bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
             """)
         else:
-            # Menggunakan gabungan string biasa agar kurung kurawal teks tidak bertabrakan dengan format f-string Python
             st.markdown(
                 "Senyawa **" + sampel + "** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. "
                 "Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.\n\n"
@@ -302,7 +322,7 @@ elif menu == "🧬 Hemiasetal & Asetal":
     
     st.markdown("""
     <div class="card">
-    <h3 style="color: #60a5fa;">💡 Mengapa Konsep ini Penting bagi Analis Kimia?</h3>
+    <h3 style="color: #34d399;">💡 Mengapa Konsep ini Penting bagi Analis Kimia?</h3>
     Dalam sampel nyata, aldehid atau keton sering kali tidak berdiri sendiri. Jika terdapat molekul alkohol dalam lingkungan larutan, 
     gugus karbonil dapat mengalami reaksi adisi nukleofilik membentuk struktur <b>Hemiasetal</b> atau <b>Asetal</b>. 
     Hal ini krusial dipahami karena pembentukan senyawa ini dapat "menyembunyikan" gugus fungsi asli yang ingin kita identifikasi.
