@@ -1,5 +1,5 @@
 import streamlit as st
-import math  # Library bawaan Python untuk hitung Standar Deviasi
+import pandas as pd
 
 # Konfigurasi halaman utama
 st.set_page_config(
@@ -39,9 +39,6 @@ h1, h2, h3, h4, label, .stMarkdown, p, li {
 th, td {
     color: white !important;
 }
-.stNumberInput label {
-    color: white !important;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -52,7 +49,7 @@ with st.sidebar:
         "🏠 Beranda",
         "📖 Teori Dasar",
         "⚗️ Pereaksi Identifikasi",
-        "🧪 Simulasi & Pengolahan Data",
+        "🧪 Simulasi Praktikum",
         "🧬 Hemiasetal & Asetal",
         "📝 Kesimpulan"
     ])
@@ -152,108 +149,59 @@ elif menu == "⚗️ Pereaksi Identifikasi":
         - **Mekanisme:** Ketika bereaksi dengan aldehid, gugus bisulfit pada pereaksi lepas, sehingga struktur kromofor *fuchsian* kembali pulih dan memunculkan warna **magenta/merah keunguan** yang khas. Keton umumnya memberikan hasil negatif atau bereaksi sangat lambat.
         """)
 
-# ==================== 4. SIMULASI PRAKTIKUM & PENGOLAHAN DATA ====================
-elif menu == "🧪 Simulasi & Pengolahan Data":
-    st.title("🧪 Laboratorium Virtual & Pengolahan Data Analisis")
-    
-    tab1, tab2 = st.tabs(["🔬 Simulasi Uji Kualitatif", "📊 Lembar Kerja & Hitung Statistik Lab"])
-    
-    with tab1:
-        st.write("Silakan pilih sampel senyawa kimia di bawah ini untuk melihat hasil uji laboratorium secara teoritis.")
+# ==================== 4. SIMULASI PRAKTIKUM ====================
+elif menu == "🧪 Simulasi Praktikum":
+    st.title("🧪 Laboratorium Virtual: Identifikasi Karbonil")
+    st.write("Silakan pilih sampel senyawa kimia di bawah ini untuk melihat hasil uji laboratorium secara teoritis.")
 
-        sampel = st.selectbox("Pilih Sampel Senyawa:", [
-            "Formaldehid (Metanal) - Aldehid",
-            "Asetaldehid (Etanal) - Aldehid",
-            "Aseton (Propanon) - Keton",
-            "Butanon (Metil Etil Keton) - Keton"
-        ])
+    sampel = st.selectbox("Pilih Sampel Senyawa:", [
+        "Formaldehid (Metanal) - Aldehid",
+        "Asetaldehid (Etanal) - Aldehid",
+        "Aseton (Propanon) - Keton",
+        "Butanon (Metil Etil Keton) - Keton"
+    ])
 
-        if st.button("🔬 Jalankan Pengujian Tabung Reaksi", key="btn_simulasi"):
-            st.write("---")
-            st.subheader(f"📊 Hasil Analisis untuk: {sampel}")
-            
-            is_aldehid = "Aldehid" in sampel
-            
-            col1, col2, col3 = st.columns(3)
-            if is_aldehid:
-                with col1:
-                    st.success("🌟 TOLLENS: POSITIF (+)")
-                    st.info("Terbentuk lapisan cermin perak mengkilap pada dinding tabung reaksi.")
-                with col2:
-                    st.success("🔴 FEHLING: POSITIF (+)")
-                    st.info("Larutan biru berubah menjadi endapan merah bata (Cu₂O).")
-                with col3:
-                    st.success("🔮 SCHIFF: POSITIF (+)")
-                    st.info("Larutan bening berubah warna menjadi ungu/magenta tajam.")
-            else:
-                with col1:
-                    st.error("❌ TOLLENS: NEGATIF (-)")
-                    st.warning("Larutan tetap jernih/tidak terbentuk cermin perak.")
-                with col2:
-                    st.error("❌ FEHLING: NEGATIF (-)")
-                    st.warning("Larutan tetap berwarna biru tua, tidak ada endapan.")
-                with col3:
-                    st.error("❌ SCHIFF: NEGATIF (-)")
-                    st.warning("Tidak terjadi perubahan warna menjadi magenta.")
-            
-            # --- FITUR BARU: GRAFIK BAWAAN NATIVE STREAMLIT ---
-            st.markdown("### 📈 Grafik Batang Intensitas Reaksi (Native Chart)")
-            
-            # Membuat dictionary data chart manual tanpa bantuan pandas
-            chart_data = {
-                "Uji Tollens": 95 if is_aldehid else 5,
-                "Uji Fehling": 90 if is_aldehid else 5,
-                "Uji Schiff": 85 if is_aldehid else 5
-            }
-            # Menampilkan grafik batang bawaan Streamlit
-            st.bar_chart(chart_data)
-            
-            st.markdown('<div class="card">', unsafe_allow_html=True)
-            st.markdown("<h4>🧠 Pembahasan Analitis:</h4>", unsafe_allow_html=True)
-            if is_aldehid:
-                st.markdown("Sampel yang Anda uji terbukti memiliki gugus fungsi <b>Aldehid (-CHO)</b>. Karena hidrogen pada gugus karbonil aldehid sangat labil, ia dengan mudah memberikan elektronnya kepada agen pengoksidasi lemah seperti pereaksi Tollens dan Fehling, mengoksidasi dirinya sendiri menjadi asam karboksilat.")
-            else:
-                st.markdown("Sampel yang Anda uji terbukti merupakan senyawa golongan <b>Keton (R-CO-R')</b>. Keton tidak mempunyai hidrogen aktif yang terikat pada karbon karbonilnya, sehingga bersifat resisten terhadap oksidasi ringan. Oleh karena itu, keton memberikan hasil negatif terhadap uji Tollens, Fehling, maupun Schiff.")
-            st.markdown('</div>', unsafe_allow_html=True)
-
-    with tab2:
-        st.markdown("### 📊 Kalkulator Statistik Replikasi Hasil Lab")
-        st.write("Masukkan data kadar hasil pengujian kuantitatif/skrining sampel Anda untuk menghitung parameter presisi analisis secara otomatis:")
-        
-        # --- FITUR BARU: INPUT DATA NUMERIK SECARA INDIVIDU ---
-        col_in1, col_in2, col_in3 = st.columns(3)
-        with col_in1:
-            simplo = st.number_input("Kadar Replikasi 1 (Simplo) %", min_value=0.0, value=12.45, step=0.01)
-        with col_in2:
-            duplo = st.number_input("Kadar Replikasi 2 (Duplo) %", min_value=0.0, value=12.60, step=0.01)
-        with col_in3:
-            triplo = st.number_input("Kadar Replikasi 3 (Triplo) %", min_value=0.0, value=12.38, step=0.01)
-            
-        # Perhitungan Statistik Real-time dengan matematika murni
-        rata_rata = (simplo + duplo + triplo) / 3
-        
-        # Rumus standar deviasi sampel (n-1)
-        varians = ((simplo - rata_rata)**2 + (duplo - rata_rata)**2 + (triplo - rata_rata)**2) / 2
-        std_dev = math.sqrt(varians)
-        
-        # Menampilkan indikator metrik
+    if st.button("🔬 Jalankan Pengujian Tabung Reaksi"):
         st.write("---")
-        col_m1, col_m2 = st.columns(2)
-        with col_m1:
-            st.metric(label="Rata-rata Kadar Sampel", value=f"{rata_rata:.3f} %")
-        with col_m2:
-            st.metric(label="Standar Deviasi (SD Presisi)", value=f"{std_dev:.3f} %")
+        st.subheader(f"📊 Hasil Analisis untuk: {sampel}")
+        
+        if "Aldehid" in sampel:
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.success("🌟 TOLLENS: POSITIF (+)")
+                st.info("Terbentuk lapisan cermin perak mengkilap pada dinding tabung reaksi.")
+            with col2:
+                st.success("🔴 FEHLING: POSITIF (+)")
+                st.info("Larutan biru berubah menjadi endapan merah bata (Cu₂O).")
+            with col3:
+                st.success("🔮 SCHIFF: POSITIF (+)")
+                st.info("Larutan bening berubah warna menjadi ungu/magenta tajam.")
             
-        # Tabel Resume Output Menggunakan Markdown Tabel
-        st.markdown("### 📋 Tabel Ringkasan Data Praktikan")
-        st.markdown(f"""
-        | Replikasi | Hasil Kadar (%) | Status |
-        | :--- | :---: | :---: |
-        | Replikasi 1 (Simplo) | {simplo:.2f} % | Sukses |
-        | Replikasi 2 (Duplo) | {duplo:.2f} % | Sukses |
-        | Replikasi 3 (Triplo) | {triplo:.2f} % | Sukses |
-        | **RATA-RATA** | **{rata_rata:.3f} %** | **-** |
-        """)
+            st.markdown("""
+            <div class="card" style="margin-top:20px;">
+            <h4>🧠 Pembahasan Analitis:</h4>
+            Sampel yang Anda uji terbukti memiliki gugus fungsi <b>Aldehid (-CHO)</b>. Karena hidrogen pada gugus karbonil aldehid sangat labil, ia dengan mudah memberikan elektronnya kepada agen pengoksidasi lemah seperti pereaksi Tollens dan Fehling, mengoksidasi dirinya sendiri menjadi asam karboksilat.
+            </div>
+            """, unsafe_allow_html=True)
+            
+        else:
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.error("❌ TOLLENS: NEGATIF (-)")
+                st.warning("Larutan tetap jernih/tidak terbentuk cermin perak.")
+            with col2:
+                st.error("❌ FEHLING: NEGATIF (-)")
+                st.warning("Larutan tetap berwarna biru tua, tidak ada endapan.")
+            with col3:
+                st.error("❌ SCHIFF: NEGATIF (-)")
+                st.warning("Tidak terjadi perubahan warna menjadi magenta.")
+                
+            st.markdown("""
+            <div class="card" style="margin-top:20px;">
+            <h4>🧠 Pembahasan Analitis:</h4>
+            Sampel yang Anda uji terbukti merupakan senyawa golongan <b>Keton (R-CO-R')</b>. Keton tidak mempunyai hidrogen aktif yang terikat pada karbon karbonilnya, sehingga bersifat resisten terhadap oksidasi ringan. Oleh karena itu, keton memberikan hasil negatif terhadap uji Tollens, Fehling, maupun Schiff.
+            </div>
+            """, unsafe_allow_html=True)
 
 # ==================== 5. HEMIASETAL & ASETAL ====================
 elif menu == "🧬 Hemiasetal & Asetal":
@@ -279,7 +227,7 @@ elif menu == "🧬 Hemiasetal & Asetal":
     - **Solusi Analisis:** Untuk mengidentifikasinya dengan benar, sampel asetal harus dihidrolisis terlebih dahulu menggunakan **asam encer** agar gugus aldehid bebasnya kembali lepas sebelum diuji dengan pereaksi identifikasi.
     """)
 
-# ==================== 6. KESIMPULAN ====================
+# ==================== 6. KESIMALAN ====================
 elif menu == "📝 Kesimpulan":
     st.title("📝 Kesimpulan Analisis")
     
