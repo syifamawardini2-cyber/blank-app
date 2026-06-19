@@ -11,7 +11,7 @@ st.set_page_config(
 # Custom CSS Premium: Latar Belakang Lab Hebat, Grid Pattern, & Solusi Selectbox Kontras
 st.markdown("""
 <style>
-/* 1. LATAR BELAKANG LUAR BIASA BAGUS: Gradasi Kosmik & Tekstur Grid Lab */
+/* 1. LATAR BELAKANG: Gradasi Kosmik & Tekstur Grid Lab */
 .stApp {
     background-color: #020617;
     background-image: 
@@ -72,7 +72,7 @@ th, td {
     padding: 12px;
 }
 
-/* 3. PERBAIKAN TOTAL DROP-DOWN (SELECTBOX) SUPAYA JELAS TERBACA */
+/* 3. PERBAIKAN SELEKTOR DROP-DOWN AGAR AMAN DARI ERROR */
 div[data-baseweb="select"] {
     background-color: #0f172a !important;
     border: 1px solid #6366f1 !important;
@@ -81,15 +81,10 @@ div[data-baseweb="select"] {
 div[data-baseweb="select"] * {
     color: #ffffff !important;
 }
-div[role="listbox"] {
-    background-color: #ffffff !important;
-}
-div[role="listbox"] ul li {
+/* Mengubah warna teks list item drop-down menjadi hitam agar kontras saat melayang */
+div[role="listbox"] li {
     color: #000000 !important;
     background-color: #ffffff !important;
-}
-div[role="listbox"] ul li:hover {
-    background-color: #cbd5e1 !important;
 }
 </style>
 """, unsafe_allow_html=True)
