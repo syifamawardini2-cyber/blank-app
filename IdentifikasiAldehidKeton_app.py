@@ -1,5 +1,4 @@
 import streamlit as st
-import math  # Library bawaan Python
 
 # Konfigurasi halaman utama
 st.set_page_config(
@@ -59,6 +58,12 @@ th, td {
     color: #e2e8f0 !important;
     padding: 10px;
 }
+
+/* Mengubah warna teks list item drop-down menjadi hitam agar kontras saat melayang */
+div[role="listbox"] li {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -69,7 +74,7 @@ with st.sidebar:
         "🏠 Beranda",
         "📖 Teori Dasar",
         "⚗️ Pereaksi Identifikasi",
-        "🧪 Simulasi & Lab Kuantitatif",
+        "🧪 Simulasi & Lab Kualitatif",
         "🧬 Hemiasetal & Asetal",
         "📝 Kesimpulan"
     ])
@@ -175,124 +180,122 @@ elif menu == "⚗️ Pereaksi Identifikasi":
         - **Mekanisme:** Bereaksi spesifik dengan aldehid untuk mengembalikan struktur kromofor asli, menghasilkan warna **magenta/ungu pekat**. Keton tidak mengubah warna larutan secara signifikan.
         """)
 
-# ==================== 4. SIMULASI & LAB KUANTITATIF ====================
+# ==================== 4. SIMULASI & LAB KUALITATIF ====================
 elif menu == "🧪 Simulasi & Lab Kuantitatif":
-    st.title("🧪 Laboratorium Virtual & Pengolahan Data Analisis")
+    st.title("🧪 Laboratorium Virtual & Analisis Gugus Fungsi")
     
-    tab1, tab2 = st.tabs(["🔬 Rak Tabung Reaksi Virtual", "📊 Kalkulator Akurasi & Presisi"])
-    
-    with tab1:
-        st.write("Silakan pilih sampel senyawa kimia di bawah ini untuk memulai pengujian kualitatif visual:")
+    st.write("Silakan pilih sampel senyawa kimia di bawah ini untuk memulai pengujian kualitatif visual:")
 
-        sampel = st.selectbox("Pilih Sampel Senyawa:", [
-            "Formaldehid (Metanal) - Aldehid",
-            "Asetaldehid (Etanal) - Aldehid",
-            "Aseton (Propanon) - Keton",
-            "Butanon (Metil Etil Keton) - Keton"
-        ])
+    sampel = st.selectbox("Pilih Sampel Senyawa:", [
+        "Formaldehid (Metanal) - Aldehid",
+        "Asetaldehid (Etanal) - Aldehid",
+        "Aseton (Propanon) - Keton",
+        "Butanon (Metil Etil Keton) - Keton"
+    ])
 
-        if st.button("🔬 Jalankan Pengujian Tabung Reaksi", key="btn_simulasi"):
-            st.write("---")
-            st.subheader(f"📊 Hasil Pengamatan Visual: {sampel}")
-            
-            is_aldehid = "Aldehid" in sampel
-            
-            # FITUR BARU: Visualisasi Rak Tabung Reaksi Berbasis Kartu Berwarna Realistis
-            col1, col2, col3 = st.columns(3)
-            
-            if is_aldehid:
-                with col1:
-                    st.markdown("""
-                    <div class="tube-card pos-tollens">
-                        <p style="font-size: 1.5em; margin: 0;">🌟 TOLLENS</p>
-                        <p style="font-size: 1.1em; color: #e2e8f0 !important; margin: 5px 0;">POSITIF (+)</p>
-                        <span style="font-size: 0.85em; font-weight: normal;">Terbentuk lapisan cermin perak mengkilap mendinding.</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-                with col2:
-                    st.markdown("""
-                    <div class="tube-card pos-fehling">
-                        <p style="font-size: 1.5em; margin: 0;">🔴 FEHLING</p>
-                        <p style="font-size: 1.1em; color: #e2e8f0 !important; margin: 5px 0;">POSITIF (+)</p>
-                        <span style="font-size: 0.85em; font-weight: normal;">Larutan biru berubah total menjadi endapan merah bata Cu₂O.</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-                with col3:
-                    st.markdown("""
-                    <div class="tube-card pos-schiff">
-                        <p style="font-size: 1.5em; margin: 0;">🔮 SCHIFF</p>
-                        <p style="font-size: 1.1em; color: #e2e8f0 !important; margin: 5px 0;">POSITIF (+)</p>
-                        <span style="font-size: 0.85em; font-weight: normal;">Larutan jernih berubah seketika menjadi ungu/magenta tajam.</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-            else:
-                with col1:
-                    st.markdown("""
-                    <div class="tube-card neg-tube">
-                        <p style="font-size: 1.5em; margin: 0;">🌟 TOLLENS</p>
-                        <p style="font-size: 1.1em; margin: 5px 0;">NEGATIF (-)</p>
-                        <span style="font-size: 0.85em; font-weight: normal;">Larutan tetap jernih transparan, tidak ada cermin perak.</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-                with col2:
-                    st.markdown("""
-                    <div class="tube-card neg-tube">
-                        <p style="font-size: 1.5em; margin: 0;">🔴 FEHLING</p>
-                        <p style="font-size: 1.1em; margin: 5px 0;">NEGATIF (-)</p>
-                        <span style="font-size: 0.85em; font-weight: normal;">Larutan konstan berwarna biru tua jernih, tanpa endapan.</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-                with col3:
-                    st.markdown("""
-                    <div class="tube-card neg-tube">
-                        <p style="font-size: 1.5em; margin: 0;">🔮 SCHIFF</p>
-                        <p style="font-size: 1.1em; margin: 5px 0;">NEGATIF (-)</p>
-                        <span style="font-size: 0.85em; font-weight: normal;">Tidak terjadi perubahan warna menjadi magenta (tetap bening).</span>
-                    </div>
-                    """, unsafe_allow_html=True)
-            
-            st.write("")
-            st.markdown('<div class="card">', unsafe_allow_html=True)
-            st.markdown("<h4 style='color: #60a5fa;'>🧠 Justifikasi Kimia Analitis:</h4>", unsafe_allow_html=True)
-            if is_aldehid:
-                st.markdown("Sampel yang diuji terbukti kuat memiliki gugus fungsi <b>Aldehid (-CHO)</b>. Elektron dari hidrogen labil karbonil dengan mudah mereduksi spesi pengoksidasi lemah dalam suasana uji kualitatif.")
-            else:
-                st.markdown("Sampel terbukti merupakan golongan <b>Keton (R-CO-R')</b>. Kandungan gugus alkil yang mengapit karbonil memproteksi senyawa dari agen oksidator kualitatif, menghasilkan respon negatif visual.")
-            st.markdown('</div>', unsafe_allow_html=True)
-
-    with tab2:
-        st.markdown("### 📊 Pengolahan Parameter Statistik Laboratorium")
-        st.write("Masukkan nilai kadar yang diperoleh praktikan untuk pengujian replikasi simplo, duplo, dan triplo:")
-        
-        col_in1, col_in2, col_in3 = st.columns(3)
-        with col_in1:
-            simplo = st.number_input("Kadar Simplo (%)", min_value=0.0, value=12.45, step=0.01)
-        with col_in2:
-            duplo = st.number_input("Kadar Duplo (%)", min_value=0.0, value=12.60, step=0.01)
-        with col_in3:
-            triplo = st.number_input("Kadar Triplo (%)", min_value=0.0, value=12.38, step=0.01)
-            
-        # Perhitungan data statistik
-        rata_rata = (simplo + duplo + triplo) / 3
-        varians = ((simplo - rata_rata)**2 + (duplo - rata_rata)**2 + (triplo - rata_rata)**2) / 2
-        std_dev = math.sqrt(varians)
-        
+    if st.button("🔬 Jalankan Pengujian Tabung Reaksi", key="btn_simulasi"):
         st.write("---")
-        col_m1, col_m2 = st.columns(2)
-        with col_m1:
-            st.metric(label="Rata-rata Analisis Kelompok", value=f"{rata_rata:.3f} %")
-        with col_m2:
-            st.metric(label="Standar Deviasi Presisi (SD)", value=f"{std_dev:.3f} %")
+        st.subheader(f"📊 Hasil Pengamatan Visual: {sampel}")
+        
+        is_aldehid = "Aldehid" in sampel
+        col1, col2, col3 = st.columns(3)
+        
+        if is_aldehid:
+            with col1:
+                st.markdown("""
+                <div class="tube-card pos-tollens">
+                    <p style="font-size: 1.5em; margin: 0;">🌟 TOLLENS</p>
+                    <p style="font-size: 1.1em; color: #dee2e6 !important; margin: 5px 0;">POSITIF (+)</p>
+                    <span style="font-size: 0.85em; font-weight: normal;">Terbentuk lapisan cermin perak mengkilap mendinding.</span>
+                </div>
+                """, unsafe_allow_html=True)
+            with col2:
+                st.markdown("""
+                <div class="tube-card pos-fehling">
+                    <p style="font-size: 1.5em; margin: 0;">🔴 FEHLING</p>
+                    <p style="font-size: 1.1em; color: #f87171 !important; margin: 5px 0;">POSITIF (+)</p>
+                    <span style="font-size: 0.85em; font-weight: normal;">Larutan biru berubah total menjadi endapan merah bata Cu₂O.</span>
+                </div>
+                """, unsafe_allow_html=True)
+            with col3:
+                st.markdown("""
+                <div class="tube-card pos-schiff">
+                    <p style="font-size: 1.5em; margin: 0;">🔮 SCHIFF</p>
+                    <p style="font-size: 1.1em; color: #f472b6 !important; margin: 5px 0;">POSITIF (+)</p>
+                    <span style="font-size: 0.85em; font-weight: normal;">Larutan jernih berubah seketika menjadi ungu/magenta tajam.</span>
+                </div>
+                """, unsafe_allow_html=True)
+        else:
+            with col1:
+                st.markdown("""
+                <div class="tube-card neg-tube">
+                    <p style="font-size: 1.5em; margin: 0;">🌟 TOLLENS</p>
+                    <p style="font-size: 1.1em; margin: 5px 0;">NEGATIF (-)</p>
+                    <span style="font-size: 0.85em; font-weight: normal;">Larutan tetap jernih transparan, tidak ada cermin perak.</span>
+                </div>
+                """, unsafe_allow_html=True)
+            with col2:
+                st.markdown("""
+                <div class="tube-card neg-tube">
+                    <p style="font-size: 1.5em; margin: 0;">🔴 FEHLING</p>
+                    <p style="font-size: 1.1em; margin: 5px 0;">NEGATIF (-)</p>
+                    <span style="font-size: 0.85em; font-weight: normal;">Larutan konstan berwarna biru tua jernih, tanpa endapan.</span>
+                </div>
+                """, unsafe_allow_html=True)
+            with col3:
+                st.markdown("""
+                <div class="tube-card neg-tube">
+                    <p style="font-size: 1.5em; margin: 0;">🔮 SCHIFF</p>
+                    <p style="font-size: 1.1em; margin: 5px 0;">NEGATIF (-)</p>
+                    <span style="font-size: 0.85em; font-weight: normal;">Tidak terjadi perubahan warna menjadi magenta (tetap bening).</span>
+                </div>
+                """, unsafe_allow_html=True)
+        
+        st.write("")
+        
+        # JALUR PEMBAHASAN DETAIL DAN BAHASA YANG MUDAH DIPAHAMI
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #60a5fa; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
+        
+        if is_aldehid:
+            st.markdown f"""
+            Senyawa **{sampel}** sukses memberikan hasil **POSITIF** pada semua uji karena ia memiliki gugus fungsi **Aldehid ($R-CHO$)**. 
+            Kunci utama reaktivitas aldehid terletak pada **atom hidrogen ($H$)** yang terikat langsung pada karbon karbonil ($C=O$). Hidrogen ini sangat rapuh (labil) sehingga aldehid berperan sebagai **reduktor kuat** (penyumbang elektron).
+
+            #### 1. Uji Tollens (Mengapa Muncul Cermin Perak?)
+            * **Alasan Positif:** Pereaksi Tollens mengandung ion kompleks perak diamina $[Ag(NH_3)_2]^+$. Karena aldehid suka mendonasikan elektronnya, ia mereduksi ion perak tersebut ($Ag^+$ bermuatan +1) menjadi logam perak murni bermuatan netral ($Ag^0$).
+            * **Mengapa Warnanya Begitu?** Logam perak ($Ag^0$) yang baru terbentuk berwujud partikel padat mikroskopis. Partikel-partikel ini akan menempel dan melapisi permukaan kaca bagian dalam tabung reaksi yang bersih secara merata, menghasilkan visual reflektif kilap seperti **cermin kaca perak**.
+            * **Persamaan Reaksi:**
+            """
+            st.latex(r"R-CHO + 2[Ag(NH_3)_2]^+ + 3OH^- \rightarrow R-COO^- + 2Ag_{(s)} \downarrow + 4NH_3 + 2H_2O")
             
-        st.markdown("### 📋 Laporan Ringkasan Lembar Kerja")
-        st.markdown(f"""
-        | Parameter Analisis | Nilai yang Diperoleh | Status Verifikasi |
-        | :--- | :---: | :---: |
-        | Hasil Kadar Uji - Simplo | {simplo:.2f} % | Terverifikasi |
-        | Hasil Kadar Uji - Duplo | {duplo:.2f} % | Terverifikasi |
-        | Hasil Kadar Uji - Triplo | {triplo:.2f} % | Terverifikasi |
-        | **Rerata Total (Mean)** | **{rata_rata:.3f} %** | **Memenuhi Syarat** |
-        """)
+            st.markdown("""
+            #### 2. Uji Fehling (Mengapa Terbentuk Endapan Merah Bata?)
+            * **Alasan Positif:** Pereaksi Fehling kaya akan ion tembaga(II) atau Kupri ($Cu^{2+}$) berwarna biru tua yang diikat oleh garam tartrat dalam suasana basa. Aldehid yang mereduksi lingkungan sekitarnya memaksa ion Kupri ($Cu^{2+}$) menangkap elektron dan berubah menjadi ion Kupro ($Cu^+$).
+            * **Mengapa Warnanya Begitu?** Ion Kupro ($Cu^+$) langsung berikatan dengan ion hidroksida ($OH^-$) dari basa kuat, membentuk senyawa padat baru bernama **Tembaga(I) Oksida ($Cu_2O$)**. Karakteristik alami dari molekul kristal $Cu_2O$ ini tidak larut di dalam air dan memantulkan spektrum cahaya berwarna **merah bata**.
+            * **Persamaan Reaksi:**
+            """)
+            st.latex(r"R-CHO + 2Cu^{2+} + 5OH^- \rightarrow R-COO^- + Cu_2O_{(s)} \downarrow + 3H_2O")
+            
+            st.markdown("""
+            #### 3. Uji Schiff (Mengapa Berubah Menjadi Magenta/Ungu Tua?)
+            * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjadi bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
+            """)
+        else:
+            st.markdown f"""
+            Senyawa **{sampel}** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. 
+            Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.
+
+            #### 1. Gagal Pada Uji Oksidasi (Tollens & Fehling)
+            * **Alasan Negatif:** Karena tidak memiliki hidrogen labil, keton adalah senyawa yang stabil dan bersifat **inert (tidak reaktif) terhadap zat pengoksidasi lemah**. Keton tidak mampu menyumbangkan elektron kepada ion $Ag^+$ pada pereaksi Tollens maupun ion $Cu^{2+}$ pada pereaksi Fehling.
+            * **Mengapa Warnanya Begitu?** Akibat tidak terjadinya perpindahan elektron ataupun pembentukan senyawa baru:
+                - Pada **Tollens**, larutan akan **tetap jernih transparan** tanpa kilapan perak sedikit pun.
+                - Pada **Fehling**, larutan akan **tetap berwarna biru tua bening** bawaan dari ion kompleks tembaga, bahkan setelah tabung dipanaskan dalam penangas air.
+
+            #### 2. Gagal Pada Uji Schiff
+            * **Alasan Negatif & Warna:** Dua gugus alkil yang mengapit karbonil pada keton selalu mendorong elektron ke arah pusat. Hal ini membuat pusat karbonil keton menjadi tidak begitu haus elektron dibandingkan dengan aldehid. Akibatnya, keton **tidak punya kekuatan yang cukup** untuk menarik atau merebut molekul belerang dari pereaksi Schiff. Struktur penentu warna *fuchsine* tetap rusak, sehingga larutan pengujian akan **tetap konstan bening/tidak berwarna**.
+            """)
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # ==================== 5. HEMIASETAL & ASETAL ====================
 elif menu == "🧬 Hemiasetal & Asetal":
@@ -334,7 +337,7 @@ elif menu == "📝 Kesimpulan":
         <li>Pereaksi <b>Fehling</b> mengidentifikasi aldehid melalui pembentukan endapan merah bata ($Cu_2O$).</li>
         <li>Pereaksi <b>Schiff</b> mendeteksi gugus aldehid lewat restorasi warna magenta.</li>
     </ul>
-    3. <b>Faktor Pengganggu (Interferensi):</b> Reaksi pembentukan hemiasetal dan asetal dapat memproteksi gugus karbonil dari reaksi oksidasi dalam suasana basa, sehingga pemahaman mekanismenya penting untuk menghindari kesalahan interpretasi (negatif palsu) di laboratorium kimia.
+    3. <b>Faktor Pengganggu (Interferensi):</b> Reaksi pembentukan hemiasetal dan asetal dapat memproteksi gugus karbonil dari reaksi oksidasi dalam suasana basa, sehingga pemahaman mekanismenya penting untuk avoidance kesalahan interpretasi (negatif palsu) di laboratorium kimia.
     </div>
     """, unsafe_allow_html=True)
     
