@@ -7,29 +7,28 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS Premium: Efek Lab Gelap Terstruktur Organik Modern & Partikel Ikon Murni CSS
+# Custom CSS Premium: Efek Biru Gradasi Mewah & Partikel Ikon Organik Murni CSS
 st.markdown("""
 <style>
-/* Background Gradasi Mewah & Mengalir Senyawa Organik */
+/* Background Biru Gradasi Mewah, Stabil, dan Menawan */
 .stApp {
-    background: #060913;
+    background: #0f172a;
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-        linear-gradient(180deg, #05070f 0%, #0c1322 100%);
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 85% 85%, rgba(29, 78, 216, 0.25) 0%, transparent 60%),
+        linear-gradient(180deg, #0b1329 0%, #1e293b 100%);
     background-attachment: fixed;
     overflow-x: hidden;
 }
 
-/* Penambahan Micro-Icons Unsur Organik & Laboratorium di Latar Belakang (Pure CSS Background Decoration) */
+/* Penambahan Micro-Icons Unsur Organik & Laboratorium di Latar Belakang */
 .stApp::before {
     content: "⬡ 🧪 ⚛ ⬢ 🧪 ⬡ ⚛ ⬢";
     position: fixed;
     top: 5%;
     left: 3%;
     font-size: 28px;
-    color: rgba(16, 185, 129, 0.06);
+    color: rgba(59, 130, 246, 0.08);
     font-family: monospace;
     pointer-events: none;
     letter-spacing: 40px;
@@ -44,7 +43,7 @@ st.markdown("""
     bottom: 8%;
     right: 5%;
     font-size: 24px;
-    color: rgba(59, 130, 246, 0.05);
+    color: rgba(30, 64, 175, 0.07);
     font-family: monospace;
     pointer-events: none;
     letter-spacing: 50px;
@@ -54,10 +53,10 @@ st.markdown("""
     width: 95vw;
 }
 
-/* Sidebar Styling dengan Aksen Hijau Kimia Organik */
+/* Sidebar Styling dengan Aksen Biru Terang */
 section[data-testid="stSidebar"] {
-    background-color: #04060b !important;
-    border-right: 2px solid rgba(16, 185, 129, 0.25);
+    background-color: #090f1e !important;
+    border-right: 2px solid rgba(59, 130, 246, 0.3);
 }
 
 h1, h2, h3, h4, label, .stMarkdown, p, li {
@@ -66,22 +65,22 @@ h1, h2, h3, h4, label, .stMarkdown, p, li {
 
 /* Efek Glassmorphism Premium untuk Kontainer Kartu */
 .card {
-    background: rgba(23, 33, 53, 0.6);
+    background: rgba(30, 41, 59, 0.65);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     padding: 25px;
     border-radius: 16px;
     margin-bottom: 20px;
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.2);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* Kartu Identitas */
 .identity-card {
-    background: rgba(11, 17, 30, 0.85);
+    background: rgba(15, 23, 42, 0.85);
     padding: 25px;
     border-radius: 16px;
-    border-left: 6px solid #10b981;
+    border-left: 6px solid #3b82f6;
     margin-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
@@ -116,7 +115,7 @@ div[role="listbox"] li {
 
 # Sidebar Menu Navigation
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #10b981;'>⬡ MENU UTAMA</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #3b82f6;'>⬡ MENU UTAMA</h2>", unsafe_allow_html=True)
     menu = st.sidebar.radio("Navigasi Halaman:", [
         "🏠 Beranda",
         "📖 Teori Dasar",
@@ -135,7 +134,7 @@ if menu == "🏠 Beranda":
     
     st.markdown("""
     <div class="card">
-    <h3 style="color: #10b981;">👋 Selamat Datang!</h3>
+    <h3 style="color: #3b82f6;">👋 Selamat Datang!</h3>
     Aplikasi ini dirancang sebagai media pembelajaran interaktif mengenai analisis kualitatif senyawa golongan 
     <b>Aldehid (Alkanal)</b> dan <b>Keton (Alkanon)</b>. Di sini, Anda dapat mempelajari teori dasar, 
     memahami prinsip kerja pereaksi spesifik, melihat persamaan reaksi kimia, hingga melakukan simulasi praktikum virtual.
@@ -145,7 +144,7 @@ if menu == "🏠 Beranda":
     st.markdown("### 👥 Identitas Pengembang")
     st.markdown("""
     <div class="identity-card">
-    <h4 style="color: #34d399; margin-bottom: 5px;"><b>Kelompok 6 - Kelas 1D</b></h4>
+    <h4 style="color: #60a5fa; margin-bottom: 5px;"><b>Kelompok 6 - Kelas 1D</b></h4>
     <p style="margin: 2px 0;"><b>Program Studi:</b> D3 Analisis Kimia</p>
     <p style="margin: 2px 0;"><b>Institusi:</b> Politeknik AKA Bogor</p>
     <hr style='border-color: rgba(255,255,255,0.15); margin: 15px 0;'>
@@ -300,9 +299,9 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
         
         st.write("")
         
-        # JALUR PEMBAHASAN DETAIL DAN BAHASA YANG MUDAH DIPAHAMI
+        # JALUR PEMBAHASAN DETAIL DAN BEBAS ERROR SYNTAX
         st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='color: #34d399; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #60a5fa; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
         
         if is_aldehid:
             st.markdown(f"""
@@ -310,36 +309,38 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
             Kunci utama reaktivitas aldehid terletak pada **atom hidrogen ($H$)** yang terikat langsung pada karbon karbonil ($C=O$). Hidrogen ini sangat rapuh (labil) sehingga aldehid berperan sebagai **reduktor kuat** (penyumbang elektron).
 
             #### 1. Uji Tollens (Mengapa Muncul Cermin Perak?)
-            * **Alasan Positif:** Pereaksi Tollens mengandung ion kompleks perak diamina $[Ag(NH_3)_2]^+$. Karena aldehid suka mendonasikan elektronnya, ia mereduksi ion perak tersebut ($Ag^+$ bermuatan +1) menjadi logam perak murni bermuatan netral ($Ag^0$).
-            * **Mengapa Warnanya Begitu?** Logam perak ($Ag^0$) yang baru terbentuk berwujud partikel padat mikroskopis. Partikel-partikel ini akan menempel dan melapisi permukaan kaca bagian dalam tabung reaksi yang bersih secara merata, menghasilkan visual reflektif kilap seperti **cermin kaca perak**.
+            * **Alasan Positif:** Pereaksi Tollens mengandung ion kompleks perak diamina $[Ag(NH_3)_2]^+$. Karena aldehid suka mendonasikan elektronnya, ia mereduksi ion perak tersebut menjadi logam perak murni bermuatan netral.
+            * **Mengapa Warnanya Begitu?** Logam perak yang baru terbentuk berwujud partikel padat mikroskopis. Partikel-partikel ini akan menempel dan melapisi permukaan kaca bagian dalam tabung reaksi yang bersih secara merata, menghasilkan visual reflektif kilap seperti **cermin kaca perak**.
             * **Persamaan Reaksi:**
             """)
             st.latex(r"R-CHO + 2[Ag(NH_3)_2]^+ + 3OH^- \rightarrow R-COO^- + 2Ag_{(s)} \downarrow + 4NH_3 + 2H_2O")
             
             st.markdown("""
             #### 2. Uji Fehling (Mengapa Terbentuk Endapan Merah Bata?)
-            * **Alasan Positif:** Pereaksi Fehling kaya akan ion tembaga(II) atau Kupri ($Cu^{2+}$) berwarna biru tua yang diikat oleh garam tartrat dalam suasana basa. Aldehid yang mereduksi lingkungan sekitarnya memaksa ion Kupri ($Cu^{2+}$) menangkap elektron dan berubah menjadi ion Kupro ($Cu^+$).
-            * **Mengapa Warnanya Begitu?** Ion Kupro ($Cu^+$) langsung berikatan dengan ion hidroksida ($OH^-$) dari basa kuat, membentuk senyawa padat baru bernama **Tembaga(I) Oksida ($Cu_2O$)**. Karakteristik alami dari molekul kristal $Cu_2O$ ini tidak larut di dalam air dan memantulkan spektrum cahaya berwarna **merah bata**.
+            * **Alasan Positif:** Pereaksi Fehling kaya akan ion tembaga(II) atau Kupri ($Cu^{2+}$) berwarna biru tua yang diikat oleh garam tartrat dalam suasana basa. Aldehid yang mereduksi lingkungan sekitarnya memaksa ion Kupri menangkap elektron dan berubah menjadi ion Kupro ($Cu^+$).
+            * **Mengapa Warnanya Begitu?** Ion Kupro langsung berikatan dengan ion hidroksida dari basa kuat, membentuk senyawa padat baru bernama **Tembaga(I) Oksida ($Cu_2O$)**. Karakteristik alami dari molekul kristal ini tidak larut di dalam air dan memantulkan spektrum cahaya berwarna **merah bata**.
             * **Persamaan Reaksi:**
             """)
             st.latex(r"R-CHO + 2Cu^{2+} + 5OH^- \rightarrow R-COO^- + Cu_2O_{(s)} \downarrow + 3H_2O")
             
             st.markdown("""
             #### 3. Uji Schiff (Mengapa Berubah Menjadi Magenta/Ungu Tua?)
-            * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjenis bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
+            * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida sehingga strukturnya rusak dan warnanya hilang total (menjadi bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
             """)
         else:
-            st.markdown(
-                "Senyawa **" + sampel + "** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. "
-                "Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.\n\n"
-                "#### 1. Gagal Pada Uji Oksidasi (Tollens & Fehling)\n"
-                "* **Alasan Negatif:** Karena tidak memiliki hidrogen labil, keton adalah senyawa yang stabil dan bersifat **inert (tidak reaktif) terhadap zat pengoksidasi lemah**. Keton tidak mampu menyumbangkan elektron kepada ion $Ag^+$ pada pereaksi Tollens maupun ion $Cu^{2+}$ pada pereaksi Fehling.\n"
-                "* **Mengapa Warnanya Begitu?** Akibat tidak terjadinya perpindahan elektron ataupun pembentukan senyawa baru:\n"
-                "  - Pada **Tollens**, larutan akan **tetap jernih transparan** tanpa kilapan perak sedikit pun.\n"
-                "  - Pada **Fehling**, larutan akan **tetap berwarna biru tua bening** bawaan dari ion kompleks tembaga, bahkan setelah tabung dipanaskan dalam penangas air.\n\n"
-                "#### 2. Gagal Pada Uji Schiff\n"
-                "* **Alasan Negatif & Warna:** Dua gugus alkil yang mengapit karbonil pada keton selalu mendorong elektron ke arah pusat. Hal ini membuat pusat karbonil keton menjadi tidak begitu haus elektron dibandingkan dengan aldehid. Akibatnya, keton **tidak punya kekuatan yang cukup** untuk menarik atau merebut molekul belerang dari pereaksi Schiff. Struktur penentu warna *fuchsine* tetap rusak, sehingga larutan pengujian akan **tetap konstan bening/tidak berwarna**."
-            )
+            st.markdown(f"""
+            Senyawa **{sampel}** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. 
+            Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.
+
+            #### 1. Gagal Pada Uji Oksidasi (Tollens & Fehling)
+            * **Alasan Negatif:** Karena tidak memiliki hidrogen labil, keton adalah senyawa yang stabil dan bersifat **inert (tidak reaktif)** terhadap zat pengoksidasi lemah. Keton tidak mampu menyumbangkan elektron kepada ion perak pada pereaksi Tollens maupun ion tembaga pada pereaksi Fehling.
+            * **Mengapa Warnanya Begitu?** Akibat tidak terjadinya perpindahan elektron ataupun pembentukan senyawa baru:
+              - Pada **Tollens**, larutan akan **tetap jernih transparan** tanpa kilapan perak sedikit pun.
+              - Pada **Fehling**, larutan akan **tetap berwarna biru tua bening** bawaan dari ion kompleks tembaga, bahkan setelah tabung dipanaskan dalam penangas air.
+
+            #### 2. Gagal Pada Uji Schiff
+            * **Alasan Negatif & Warna:** Dua gugus alkil yang mengapit karbonil pada keton selalu mendorong elektron ke arah pusat. Hal ini membuat pusat karbonil keton menjadi tidak begitu haus elektron dibandingkan dengan aldehid. Akibatnya, keton **tidak punya kekuatan yang cukup** untuk menarik atau merebut molekul belerang dari pereaksi Schiff. Struktur penentu warna *fuchsine* tetap rusak, sehingga larutan pengujian akan **tetap konstan bening atau tidak berwarna**.
+            """)
         st.markdown('</div>', unsafe_allow_html=True)
 
 # ==================== 5. HEMIASETAL & ASETAL ====================
@@ -348,7 +349,7 @@ elif menu == "🧬 Hemiasetal & Asetal":
     
     st.markdown("""
     <div class="card">
-    <h3 style="color: #34d399;">💡 Mengapa Konsep ini Penting bagi Analis Kimia?</h3>
+    <h3 style="color: #60a5fa;">💡 Mengapa Konsep ini Penting bagi Analis Kimia?</h3>
     Dalam sampel nyata, aldehid atau keton sering kali tidak berdiri sendiri. Jika terdapat molekul alkohol dalam lingkungan larutan, 
     gugus karbonil dapat mengalami reaksi adisi nukleofilik membentuk struktur <b>Hemiasetal</b> atau <b>Asetal</b>. 
     Hal ini krusial dipahami karena pembentukan senyawa ini dapat "menyembunyikan" gugus fungsi asli yang ingin kita identifikasi.
