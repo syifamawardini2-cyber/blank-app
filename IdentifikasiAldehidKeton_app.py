@@ -7,32 +7,22 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS Premium: Efek Lab Gelap Terstruktur Organik & Glassmorphic Cards
+# Custom CSS Premium: Efek Lab Gelap Terstruktur Organik Tanpa Crash SVG
 st.markdown("""
 <style>
-/* Background Menawan dengan Unsur Struktur Organik (Benzena/Heksagonal) */
+/* Background Menawan & Stabil dengan Efek Pendaran Kimia Organik Murni CSS (Tanpa Gambar/SVG) */
 .stApp {
-    background-color: #0b111e;
+    background: #090e17;
     background-image: 
-        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        linear-gradient(135deg, #090d16 0%, #0f172a 100%);
-    position: relative;
-}
-
-/* Pola Garis Heksagonal Organik Samar */
-.stApp::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    opacity: 0.25;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66zm0 2L56 84L56 100L28 100L0 100L0 84L28 68z' fill='%233b82f6' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+        radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+        linear-gradient(180deg, #070a12 0%, #0f172a 100%);
+    background-attachment: fixed;
 }
 
 section[data-testid="stSidebar"] {
-    background-color: #070b12 !important;
-    border-right: 1px solid rgba(16, 185, 129, 0.15);
+    background-color: #06090f !important;
+    border-right: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 h1, h2, h3, h4, label, .stMarkdown, p, li {
@@ -58,7 +48,7 @@ h1, h2, h3, h4, label, .stMarkdown, p, li {
     border-radius: 16px;
     border-left: 6px solid #10b981;
     margin-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Indikator Tabung Reaksi Virtual */
@@ -68,7 +58,7 @@ h1, h2, h3, h4, label, .stMarkdown, p, li {
     text-align: center;
     font-weight: bold;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .pos-tollens { background: linear-gradient(135deg, #868e96, #212529); color: #fff !important; border-top: 5px solid #dee2e6; }
 .pos-fehling { background: linear-gradient(135deg, #b91c1c, #7f1d1d); color: #fff !important; border-top: 5px solid #f87171; }
