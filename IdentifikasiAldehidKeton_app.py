@@ -282,19 +282,18 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
             * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjadi bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
             """)
         else:
-            st.markdown(f"""
-            Senyawa **{sampel}** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. 
-            Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.
-
-            #### 1. Gagal Pada Uji Oksidasi (Tollens & Fehling)
-            * **Alasan Negatif:** Karena tidak memiliki hidrogen labil, keton adalah senyawa yang stabil dan bersifat **inert (tidak reaktif) terhadap zat pengoksidasi lemah**. Keton tidak mampu menyumbangkan elektron kepada ion $Ag^+$ pada pereaksi Tollens maupun ion $Cu^{2+}$ pada pereaksi Fehling.
-            * **Mengapa Warnanya Begitu?** Akibat tidak terjadinya perpindahan elektron ataupun pembentukan senyawa baru:
-                - Pada **Tollens**, larutan akan **tetap jernih transparan** tanpa kilapan perak sedikit pun.
-                - Pada **Fehling**, larutan akan **tetap berwarna biru tua bening** bawaan dari ion kompleks tembaga, bahkan setelah tabung dipanaskan dalam penangas air.
-
-            #### 2. Gagal Pada Uji Schiff
-            * **Alasan Negatif & Warna:** Dua gugus alkil yang mengapit karbonil pada keton selalu mendorong elektron ke arah pusat. Hal ini membuat pusat karbonil keton menjadi tidak begitu haus elektron dibandingkan dengan aldehid. Akibatnya, keton **tidak punya kekuatan yang cukup** untuk menarik atau merebut molekul belerang dari pereaksi Schiff. Struktur penentu warna *fuchsine* tetap rusak, sehingga larutan pengujian akan **tetap konstan bening/tidak berwarna**.
-            """)
+            # Menggunakan gabungan string biasa agar kurung kurawal teks tidak bertabrakan dengan format f-string Python
+            st.markdown(
+                "Senyawa **" + sampel + "** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. "
+                "Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.\n\n"
+                "#### 1. Gagal Pada Uji Oksidasi (Tollens & Fehling)\n"
+                "* **Alasan Negatif:** Karena tidak memiliki hidrogen labil, keton adalah senyawa yang stabil dan bersifat **inert (tidak reaktif) terhadap zat pengoksidasi lemah**. Keton tidak mampu menyumbangkan elektron kepada ion $Ag^+$ pada pereaksi Tollens maupun ion $Cu^{2+}$ pada pereaksi Fehling.\n"
+                "* **Mengapa Warnanya Begitu?** Akibat tidak terjadinya perpindahan elektron ataupun pembentukan senyawa baru:\n"
+                "  - Pada **Tollens**, larutan akan **tetap jernih transparan** tanpa kilapan perak sedikit pun.\n"
+                "  - Pada **Fehling**, larutan akan **tetap berwarna biru tua bening** bawaan dari ion kompleks tembaga, bahkan setelah tabung dipanaskan dalam penangas air.\n\n"
+                "#### 2. Gagal Pada Uji Schiff\n"
+                "* **Alasan Negatif & Warna:** Dua gugus alkil yang mengapit karbonil pada keton selalu mendorong elektron ke arah pusat. Hal ini membuat pusat karbonil keton menjadi tidak begitu haus elektron dibandingkan dengan aldehid. Akibatnya, keton **tidak punya kekuatan yang cukup** untuk menarik atau merebut molekul belerang dari pereaksi Schiff. Struktur penentu warna *fuchsine* tetap rusak, sehingga larutan pengujian akan **tetap konstan bening/tidak berwarna**."
+            )
         st.markdown('</div>', unsafe_allow_html=True)
 
 # ==================== 5. HEMIASETAL & ASETAL ====================
