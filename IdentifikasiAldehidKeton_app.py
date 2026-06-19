@@ -181,7 +181,7 @@ elif menu == "⚗️ Pereaksi Identifikasi":
         """)
 
 # ==================== 4. SIMULASI & LAB KUALITATIF ====================
-elif menu == "🧪 Simulasi & Lab Kuantitatif":
+elif menu == "🧪 Simulasi & Lab Kualitatif":
     st.title("🧪 Laboratorium Virtual & Analisis Gugus Fungsi")
     
     st.write("Silakan pilih sampel senyawa kimia di bawah ini untuk memulai pengujian kualitatif visual:")
@@ -258,7 +258,7 @@ elif menu == "🧪 Simulasi & Lab Kuantitatif":
         st.markdown("<h3 style='color: #60a5fa; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
         
         if is_aldehid:
-            st.markdown f"""
+            st.markdown(f"""
             Senyawa **{sampel}** sukses memberikan hasil **POSITIF** pada semua uji karena ia memiliki gugus fungsi **Aldehid ($R-CHO$)**. 
             Kunci utama reaktivitas aldehid terletak pada **atom hidrogen ($H$)** yang terikat langsung pada karbon karbonil ($C=O$). Hidrogen ini sangat rapuh (labil) sehingga aldehid berperan sebagai **reduktor kuat** (penyumbang elektron).
 
@@ -266,7 +266,7 @@ elif menu == "🧪 Simulasi & Lab Kuantitatif":
             * **Alasan Positif:** Pereaksi Tollens mengandung ion kompleks perak diamina $[Ag(NH_3)_2]^+$. Karena aldehid suka mendonasikan elektronnya, ia mereduksi ion perak tersebut ($Ag^+$ bermuatan +1) menjadi logam perak murni bermuatan netral ($Ag^0$).
             * **Mengapa Warnanya Begitu?** Logam perak ($Ag^0$) yang baru terbentuk berwujud partikel padat mikroskopis. Partikel-partikel ini akan menempel dan melapisi permukaan kaca bagian dalam tabung reaksi yang bersih secara merata, menghasilkan visual reflektif kilap seperti **cermin kaca perak**.
             * **Persamaan Reaksi:**
-            """
+            """)
             st.latex(r"R-CHO + 2[Ag(NH_3)_2]^+ + 3OH^- \rightarrow R-COO^- + 2Ag_{(s)} \downarrow + 4NH_3 + 2H_2O")
             
             st.markdown("""
@@ -282,7 +282,7 @@ elif menu == "🧪 Simulasi & Lab Kuantitatif":
             * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjadi bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
             """)
         else:
-            st.markdown f"""
+            st.markdown(f"""
             Senyawa **{sampel}** memberikan hasil **NEGATIF** pada seluruh uji karena merupakan golongan **Keton ($R-CO-R'$)**. 
             Keton memiliki struktur di mana karbon karbonil ($C=O$) dijepit erat di tengah-tengah oleh dua rantai karbon (gugus alkil) dan **tidak mempunyai atom hidrogen** yang menempel langsung pada pusat karbonilnya.
 
@@ -316,7 +316,7 @@ elif menu == "🧬 Hemiasetal & Asetal":
     2. **Asetal / Ketal:** Terbentuk ketika hemiasetal bereaksi lebih lanjut dengan **molekul alkohol kedua** dengan bantuan katalis asam ($H^+$), melepaskan molekul air ($H_2O$).
     
     ### ⚠️ Dampak Terhadap Analisis Kualitatif di Laboratorium:
-    - **Masking Effect (Penyamaran):** Ketika aldehid berubah menjadi asetal, gugus karbonil ($C=O$) yang reaktif berubah menjadi ikatan tunggal eter ($-C-O-C-$) yang jauh lebih stabil.
+    - **Masking Effect (Penyamaran):** Ketika aldehid berubah menjadi asetal, gugus karbonil ($C=O$) yang reaktif berubah menjadi ikalan tunggal eter ($-C-O-C-$) yang jauh lebih stabil.
     - **Hasil Negatif Palsu (False Negative):** Karena asetal bersifat stabil terhadap basa, pereaksi seperti **Fehling** dan **Tollens** (yang lingkungannya basa) tidak akan mampu memutuskan ikatan asetal tersebut. Akibatnya, aldehid yang telah berubah menjadi asetal akan memberikan hasil **negatif**, padahal sampel aselinya mengandung aldehid.
     - **Solusi Analisis:** Untuk mengidentifikasinya dengan benar, sampel asetal harus dihidrolisis terlebih dahulu menggunakan **asam encer** agar gugus aldehid bebasnya kembali lepas sebelum diuji dengan pereaksi identifikasi.
     """)
@@ -337,7 +337,7 @@ elif menu == "📝 Kesimpulan":
         <li>Pereaksi <b>Fehling</b> mengidentifikasi aldehid melalui pembentukan endapan merah bata ($Cu_2O$).</li>
         <li>Pereaksi <b>Schiff</b> mendeteksi gugus aldehid lewat restorasi warna magenta.</li>
     </ul>
-    3. <b>Faktor Pengganggu (Interferensi):</b> Reaksi pembentukan hemiasetal dan asetal dapat memproteksi gugus karbonil dari reaksi oksidasi dalam suasana basa, sehingga pemahaman mekanismenya penting untuk avoidance kesalahan interpretasi (negatif palsu) di laboratorium kimia.
+    3. <b>Faktor Pengganggu (Interferensi):</b> Reaksi pembentukan hemiasetal dan asetal dapat memproteksi gugus karbonil dari reaksi oksidasi dalam suasana basa, sehingga pemahaman mekanismenya penting untuk menghindari kesalahan interpretasi (negatif palsu) di laboratorium kimia.
     </div>
     """, unsafe_allow_html=True)
     
