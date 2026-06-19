@@ -7,28 +7,28 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS Premium: Tema Terang Gradasi Profesional & Partikel Ikon Organik
+# Custom CSS Premium: Tema Gradasi Biru-Merah Futuristik & Partikel Ikon Organik Glow
 st.markdown("""
 <style>
-/* Background Gradasi Terang yang Segar dan Profesional */
+/* Background Gradasi Biru - Merah Futuristik */
 .stApp {
-    background: #f1f5f9;
+    background: #0d0b18;
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 85% 85%, rgba(14, 165, 233, 0.15) 0%, transparent 60%),
-        linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        radial-gradient(circle at 10% 15%, rgba(37, 99, 235, 0.25) 0%, transparent 55%),
+        radial-gradient(circle at 90% 85%, rgba(225, 29, 72, 0.22) 0%, transparent 60%),
+        linear-gradient(135deg, #09070f 0%, #11132e 50%, #1c0d18 100%);
     background-attachment: fixed;
     overflow-x: hidden;
 }
 
-/* Penambahan Micro-Icons Unsur Organik & Laboratorium di Latar Belakang (Tema Terang) */
+/* Penambahan Micro-Icons Unsur Organik dengan Efek Transparan */
 .stApp::before {
     content: "⬡ 🧪 ⚛ ⬢ 🧪 ⬡ ⚛ ⬢";
     position: fixed;
     top: 5%;
     left: 3%;
     font-size: 28px;
-    color: rgba(59, 130, 246, 0.05);
+    color: rgba(37, 99, 235, 0.08);
     font-family: monospace;
     pointer-events: none;
     letter-spacing: 40px;
@@ -43,7 +43,7 @@ st.markdown("""
     bottom: 8%;
     right: 5%;
     font-size: 24px;
-    color: rgba(14, 165, 233, 0.04);
+    color: rgba(225, 29, 72, 0.07);
     font-family: monospace;
     pointer-events: none;
     letter-spacing: 50px;
@@ -53,61 +53,61 @@ st.markdown("""
     width: 95vw;
 }
 
-/* Sidebar Styling Khusus Tema Terang */
+/* Sidebar Styling Khusus dengan Batas Gradasi Lembut */
 section[data-testid="stSidebar"] {
-    background-color: #ffffff !important;
-    border-right: 2px solid rgba(59, 130, 246, 0.2);
+    background-color: #06050b !important;
+    border-right: 2px solid rgba(139, 92, 246, 0.25);
 }
 
-/* Memastikan teks utama berwarna gelap agar kontras dengan background terang */
+/* Warna Teks Utama */
 h1, h2, h3, h4, label, .stMarkdown, p, li {
-    color: #1e293b !important;
+    color: #f8fafc !important;
 }
 
-/* Efek Card Putih Bersih Modern untuk Kontainer Kartu */
+/* Efek Glassmorphism Premium dengan Pendaran Neon Halus (Cyber-Lab Card) */
 .card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(20, 18, 33, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 25px;
     border-radius: 16px;
     margin-bottom: 20px;
-    border: 1px solid rgba(59, 130, 246, 0.15);
-    box-shadow: 0 8px 30px rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 15px rgba(139, 92, 246, 0.05);
 }
 
-/* Kartu Identitas Tema Terang */
+/* Kartu Identitas dengan Garis Samping Gradasi */
 .identity-card {
-    background: #ffffff;
+    background: rgba(10, 8, 18, 0.9);
     padding: 25px;
     border-radius: 16px;
-    border-left: 6px solid #3b82f6;
+    border-left: 6px solid #e11d48;
     margin-top: 15px;
-    border-top: 1px solid rgba(0, 0, 0, 0.02);
-    box-shadow: 0 4px 20px rgba(148, 163, 184, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Indikator Tabung Reaksi Virtual (Tetap kontras tinggi) */
+/* Indikator Tabung Reaksi Virtual */
 .tube-card {
     padding: 20px;
     border-radius: 12px;
     text-align: center;
     font-weight: bold;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 .pos-tollens { background: linear-gradient(135deg, #868e96, #212529); color: #fff !important; border-top: 5px solid #dee2e6; }
-.pos-fehling { background: linear-gradient(135deg, #b91c1c, #7f1d1d); color: #fff !important; border-top: 5px solid #f87171; }
-.pos-schiff { background: linear-gradient(135deg, #be185d, #701a75); color: #fff !important; border-top: 5px solid #f472b6; }
-.neg-tube { background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff !important; border-top: 5px solid #60a5fa; }
+.pos-fehling { background: linear-gradient(135deg, #e11d48, #4c0519); color: #fff !important; border-top: 5px solid #fda4af; }
+.pos-schiff { background: linear-gradient(135deg, #be185d, #4c0519); color: #fff !important; border-top: 5px solid #f472b6; }
+.neg-tube { background: linear-gradient(135deg, #1d4ed8, #0f172a); color: #93c5fd !important; border-top: 5px solid #60a5fa; }
 
-/* Mengatur teks judul di dalam tabung agar tetap putih */
+/* Menjaga warna teks tombol lab kualitatif agar tetap terbaca */
 .tube-card p, .tube-card span {
     color: #ffffff !important;
 }
 
 th, td {
-    color: #334155 !important;
+    color: #e2e8f0 !important;
     padding: 10px;
 }
 
@@ -121,7 +121,7 @@ div[role="listbox"] li {
 
 # Sidebar Menu Navigation
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #3b82f6;'>⬡ MENU UTAMA</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #db2777;'>⬡ MENU UTAMA</h2>", unsafe_allow_html=True)
     menu = st.sidebar.radio("Navigasi Halaman:", [
         "🏠 Beranda",
         "📖 Teori Dasar",
@@ -131,7 +131,7 @@ with st.sidebar:
         "📝 Kesimpulan"
     ])
     st.write("---")
-    st.markdown("<p style='text-align: center; font-size: 0.85em; color: #64748b;'>Politeknik AKA Bogor<br><b>D3 Analisis Kimia 2026</b></p>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center; font-size: 0.85em; color: #a1a1aa;'>Politeknik AKA Bogor<br><b>D3 Analisis Kimia 2026</b></p>", unsafe_allow_html=True)
 
 # ==================== 1. BERANDA ====================
 if menu == "🏠 Beranda":
@@ -140,7 +140,7 @@ if menu == "🏠 Beranda":
     
     st.markdown("""
     <div class="card">
-    <h3 style="color: #3b82f6;">👋 Selamat Datang!</h3>
+    <h3 style="color: #2563eb;">👋 Selamat Datang!</h3>
     Aplikasi ini dirancang sebagai media pembelajaran interaktif mengenai analisis kualitatif senyawa golongan 
     <b>Aldehid (Alkanal)</b> dan <b>Keton (Alkanon)</b>. Di sini, Anda dapat mempelajari teori dasar, 
     memahami prinsip kerja pereaksi spesifik, melihat persamaan reaksi kimia, hingga melakukan simulasi praktikum virtual.
@@ -150,16 +150,16 @@ if menu == "🏠 Beranda":
     st.markdown("### 👥 Identitas Pengembang")
     st.markdown("""
     <div class="identity-card">
-    <h4 style="color: #2563eb; margin-bottom: 5px;"><b>Kelompok 6 - Kelas 1D</b></h4>
+    <h4 style="color: #f43f5e; margin-bottom: 5px;"><b>Kelompok 6 - Kelas 1D</b></h4>
     <p style="margin: 2px 0;"><b>Program Studi:</b> D3 Analisis Kimia</p>
     <p style="margin: 2px 0;"><b>Institusi:</b> Politeknik AKA Bogor</p>
-    <hr style='border-color: rgba(0,0,0,0.1); margin: 15px 0;'>
+    <hr style='border-color: rgba(255,255,255,0.1); margin: 15px 0;'>
     <table style="width: 100%; border-collapse: collapse;">
-        <tr style="border-bottom: 2px solid rgba(0,0,0,0.1);"><th>No.</th><th>Nama Anggota</th><th>NIM</th></tr>
+        <tr style="border-bottom: 2px solid rgba(255,255,255,0.15);"><th>No.</th><th>Nama Anggota</th><th>NIM</th></tr>
         <tr><td>1.</td><td>Arrobbia Ainnur Kalam</td><td>2560582</td></tr>
-        <tr style="background: rgba(0,0,0,0.02);"><td>2.</td><td>Rafi Nanda Satria</td><td>2560740</td></tr>
+        <tr style="background: rgba(255,255,255,0.03);"><td>2.</td><td>Rafi Nanda Satria</td><td>2560740</td></tr>
         <tr><td>3.</td><td>Syaila Annisa Putri</td><td>2560791</td></tr>
-        <tr style="background: rgba(0,0,0,0.02);"><td>4.</td><td>Syifa Mawardini</td><td>2560793</td></tr>
+        <tr style="background: rgba(255,255,255,0.03);"><td>4.</td><td>Syifa Mawardini</td><td>2560793</td></tr>
         <tr><td>5.</td><td>Yusela Tsalsa Siwi</td><td>2560808</td></tr>
     </table>
     </div>
@@ -194,8 +194,8 @@ elif menu == "📖 Teori Dasar":
         
     with col2:
         st.markdown("""
-        <div class="card" style="border-top: 4px solid #dc2626;">
-        <h3 style="color: #dc2626;">🧪 Keton (Alkanon)</h3>
+        <div class="card" style="border-top: 4px solid #e11d48;">
+        <h3 style="color: #e11d48;">🧪 Keton (Alkanon)</h3>
         <ul>
             <li><b>Rumus Struktur:</b> $R-CO-R'$ (Gugus karbonil diapit dua gugus alkil).</li>
             <li><b>Rumus Molekul:</b> $C_nH_{2n}O$ (Isomer fungsional aldehid).</li>
@@ -307,7 +307,7 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
         
         # JALUR PEMBAHASAN DETAIL
         st.markdown('<div class="card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='color: #2563eb; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='color: #f43f5e; margin-top: 0;'>🧠 Pembahasan Kimia Analitis Eksklusif</h3>", unsafe_allow_html=True)
         
         if is_aldehid:
             st.markdown(f"""
@@ -389,8 +389,4 @@ elif menu == "📝 Kesimpulan":
         <li>Pereaksi <b>Fehling</b> mengidentifikasi aldehid melalui pembentukan endapan merah bata ($Cu_2O$).</li>
         <li>Pereaksi <b>Schiff</b> mendeteksi gugus aldehid lewat restorasi warna magenta.</li>
     </ul>
-    3. <b>Faktor Pengganggu (Interferensi):</b> Reaksi pembentukan hemiasetal dan asetal dapat memproteksi gugus karbonil dari reaksi oksidasi dalam suasana basa, sehingga pemahaman mekanismenya penting untuk avoidance kesalahan interpretasi (negatif palsu) di laboratorium kimia.
-    </div>
-    """, unsafe_allow_html=True)
-    
-    st.balloons()
+    3. <b>Faktor Pengganggu (Inter
