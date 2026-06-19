@@ -7,48 +7,84 @@ st.set_page_config(
     layout="wide"
 )
 
-# Custom CSS Premium: Efek Lab Gelap Terstruktur Organik Tanpa Crash SVG
+# Custom CSS Premium: Efek Lab Gelap Terstruktur Organik Modern & Partikel Ikon Murni CSS
 st.markdown("""
 <style>
-/* Background Menawan & Stabil dengan Efek Pendaran Kimia Organik Murni CSS (Tanpa Gambar/SVG) */
+/* Background Gradasi Mewah & Mengalir Senyawa Organik */
 .stApp {
-    background: #090e17;
+    background: #060913;
     background-image: 
-        radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        linear-gradient(180deg, #070a12 0%, #0f172a 100%);
+        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 90% 10%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+        linear-gradient(180deg, #05070f 0%, #0c1322 100%);
     background-attachment: fixed;
+    overflow-x: hidden;
 }
 
+/* Penambahan Micro-Icons Unsur Organik & Laboratorium di Latar Belakang (Pure CSS Background Decoration) */
+.stApp::before {
+    content: "⬡ 🧪 ⚛ ⬢ 🧪 ⬡ ⚛ ⬢";
+    position: fixed;
+    top: 5%;
+    left: 3%;
+    font-size: 28px;
+    color: rgba(16, 185, 129, 0.06);
+    font-family: monospace;
+    pointer-events: none;
+    letter-spacing: 40px;
+    line-height: 200px;
+    word-break: break-all;
+    width: 95vw;
+}
+
+.stApp::after {
+    content: "🧪 ⚛ ⬢ ⬡ 🧪 ⬢ ⚛ ⬡";
+    position: fixed;
+    bottom: 8%;
+    right: 5%;
+    font-size: 24px;
+    color: rgba(59, 130, 246, 0.05);
+    font-family: monospace;
+    pointer-events: none;
+    letter-spacing: 50px;
+    line-height: 180px;
+    word-break: break-all;
+    direction: rtl;
+    width: 95vw;
+}
+
+/* Sidebar Styling dengan Aksen Hijau Kimia Organik */
 section[data-testid="stSidebar"] {
-    background-color: #06090f !important;
-    border-right: 1px solid rgba(16, 185, 129, 0.2);
+    background-color: #04060b !important;
+    border-right: 2px solid rgba(16, 185, 129, 0.25);
 }
 
 h1, h2, h3, h4, label, .stMarkdown, p, li {
     color: #f8fafc !important;
 }
 
-/* Efek Glassmorphism Premium untuk Kontainer */
+/* Efek Glassmorphism Premium untuk Kontainer Kartu */
 .card {
-    background: rgba(30, 41, 59, 0.5);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(23, 33, 53, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     padding: 25px;
     border-radius: 16px;
     margin-bottom: 20px;
-    border: 1px solid rgba(16, 185, 129, 0.15);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* Kartu Identitas */
 .identity-card {
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(11, 17, 30, 0.85);
     padding: 25px;
     border-radius: 16px;
     border-left: 6px solid #10b981;
     margin-top: 15px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 /* Indikator Tabung Reaksi Virtual */
@@ -58,7 +94,7 @@ h1, h2, h3, h4, label, .stMarkdown, p, li {
     text-align: center;
     font-weight: bold;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 .pos-tollens { background: linear-gradient(135deg, #868e96, #212529); color: #fff !important; border-top: 5px solid #dee2e6; }
 .pos-fehling { background: linear-gradient(135deg, #b91c1c, #7f1d1d); color: #fff !important; border-top: 5px solid #f87171; }
@@ -80,7 +116,7 @@ div[role="listbox"] li {
 
 # Sidebar Menu Navigation
 with st.sidebar:
-    st.markdown("<h2 style='text-align: center; color: #10b981;'>🧪 MENU UTAMA</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #10b981;'>⬡ MENU UTAMA</h2>", unsafe_allow_html=True)
     menu = st.sidebar.radio("Navigasi Halaman:", [
         "🏠 Beranda",
         "📖 Teori Dasar",
@@ -290,7 +326,7 @@ elif menu == "🧪 Simulasi & Lab Kualitatif":
             
             st.markdown("""
             #### 3. Uji Schiff (Mengapa Berubah Menjadi Magenta/Ungu Tua?)
-            * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjadi bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
+            * **Alasan Positif & Perubahan Warna:** Pereaksi Schiff awalnya dibuat dari zat warna merah bernama *fuchsine*. Zat warna tersebut dialiri gas belerang dioksida ($SO_2$) sehingga strukturnya rusak dan warnanya hilang total (menjenis bening). Ketika senyawa aldehid ditambahkan, sifat aldehid yang sangat suka elektron (*elektrofilik*) akan menyerang dan menarik molekul belerang ($SO_2$) menjauh dari zat warna tersebut. Karena belerang terlepas, struktur pembawa warna asli (*kromofor*) dari *fuchsine* kembali pulih dan memancarkan warna **magenta atau ungu pekat**.
             """)
         else:
             st.markdown(
